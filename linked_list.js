@@ -108,12 +108,12 @@ LinkedList.prototype.search = function(searchValue) {
 
 LinkedList.prototype.indexOf = function(value) {
   let indexArray = [];
-  let indexCount = 0;
+  let currentIndex = 0;
   var currentNode = this.head;
 
   while(currentNode){
-    if (currentNode.value === value) indexArray.push(indexCount);
-    indexCount ++;
+    if (currentNode.value === value) indexArray.push(currentIndex);
+    currentIndex ++;
     currentNode = currentNode.next;
   }
   return indexArray;
@@ -121,9 +121,28 @@ LinkedList.prototype.indexOf = function(value) {
 };
 
 var myLL = new LinkedList();
-myLL.addToHead(8);
-myLL.addToHead(3);
-myLL.addToHead(5);
-myLL.addToHead(3);
-//console.log(myLL);
-console.log(myLL.indexOf(3));
+myLL.addToHead(1);
+
+myLL.addToHead(2);
+console.log("MY LINKED LIST BEFORE",myLL);
+//console.log(myLL.indexOf(3));
+
+var reverseLinkedList = function(linkedlist) {
+  var node = linkedlist;
+  var previous = null;
+
+  while(node) {
+    // save next or you lose it!!!
+    var save = node.next;
+    // reverse pointer
+    node.next = previous;
+    // increment previous to current node
+    previous = node;
+    // increment node to next node or null at end of list
+    node = save;
+  }
+  return previous;   // Change the list head !!!
+}
+myLL = reverseLinkedList(myLL);
+
+console.log("MY LINKED LIST NOW: ", myLL);
