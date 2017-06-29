@@ -26,13 +26,13 @@ let findCoin = (ArrEl, index) => {
    let coinR = alphabetSet[index + 2];  // Right Coin
 
    if(ArrEl[`${coinL}`] === ArrEl[`${coinC}`]) {
-     console.log(`Actual Overwight Coin Found: ${coinR}`);
+     console.log(`Actual Overweight Coin Found: ${coinR}`);
      return coinR;
     } else if (ArrEl[`${coinL}`] > ArrEl[`${coinC}`]) {
      return coinL;
-      console.log(`Actual Overwight Coin Found: ${coinL}`);
+      console.log(`Actual Overweight Coin Found: ${coinL}`);
     } else {
-      console.log(`Actual Overwight Coin Found: ${coinL}`);
+      console.log(`Actual Overweight Coin Found: ${coinL}`);
       return coinC;
     }
 
@@ -75,5 +75,5 @@ let findCoin = (ArrEl, index) => {
    }
    console.log("This is my Test Coin Set:", ArrEl);
    console.log("Expected Overweight Coin: ", overWeightCointIndex[k]);
-   console.log("-----------------------------");
+
 }
